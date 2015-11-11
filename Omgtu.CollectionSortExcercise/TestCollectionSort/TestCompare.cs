@@ -14,11 +14,19 @@ namespace Omgtu.CollectionSortExcercise
         }
 
         [TestMethod]
-        public void TestNameCompareNull()
+        public void TestNameCompareLeftNullPerson()
         {
             Person personLeft = null;
             Person personRight = new Person(@"Бунин Иван РН-231");
             Assert.AreEqual(-1, PersonComparer.CompareByName(personLeft, personRight));
+        }
+
+        [TestMethod]
+        public void TestNameCompareRightNullPerson()
+        {
+            Person personLeft = new Person(@"Бунин Иван РН-231");
+            Person personRight = null;
+            Assert.AreEqual(1, PersonComparer.CompareByName(personLeft, personRight));
         }
 
         [TestMethod]
